@@ -8,17 +8,6 @@ public class StackSimulation : MonoBehaviour
     public Stack simStack = new Stack();
     string input;
 
-    void Start()
-    {
-        //Stack simStack = new Stack();
-        
-    }
-
-    private void Update()
-    {
-
-    }
-
     public void ReadInputString(string s)
     {
         input = s;
