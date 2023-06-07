@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class StackSimulation : MonoBehaviour
 {
+    [SerializeField] GameObject boxPrefab;
+    [SerializeField] Transform boxSpawnPosition;
+    private GameObject box;
 
-    public Stack simStack = new Stack();
-    string input;
+    public Stack<GameObject> simStack;
 
-    public void ReadInputString(string s)
+    private void Start()
     {
-        input = s;
-
-        //Debug.Log(input);
+        simStack = new Stack<GameObject>();
     }
 
     public void PushStack()
     {
-        simStack.Push(input);
+        box = Instantiate(boxPrefab, boxSpawnPosition);
 
-        foreach (var item in simStack)
-            Debug.Log(item);
+        simStack.Push(box);
+
+        Debug.Log("number of boxes in the stack = " + simStack.Count);
     }
 
     public void PopStack()
     {
+        GameObject topBox = simStack.Peek().gameObject;
+
+        Destroy(topBox);
+
         simStack.Pop();
 
-        foreach (var item in simStack)
-            Debug.Log(item);
+        Debug.Log("number of boxes in the stack = " + simStack.Count);
+
     }
 
 }
