@@ -1,35 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QueueSimulation : MonoBehaviour
 {
-    public Queue<string> simQueue;
-    string text;
+    [SerializeField] GameObject personPrefab;
+    [SerializeField] Transform spawnPosition;
+    private GameObject person;
+
+    public Queue<GameObject> simQueue;
+    int queueCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        simQueue = new Queue<string>();
+        simQueue = new Queue<GameObject>();
+    }
+
+    private void Update()
+    {
+        queueCount = simQueue.Count;
     }
 
     public void EnqueueSim()
     {
-        simQueue.Enqueue(text);
+        person = Instantiate(personPrefab, spawnPosition);
 
-        foreach (var text in simQueue)
-            Debug.Log(text);
+        simQueue.Enqueue(person);
     }
 
     public void DequeueSim()
     {
-        simQueue.Dequeue();
-        foreach (var text in simQueue)
-            Debug.Log(text);
+        try
+        {
+            GameObject frontQueue = simQueue.Peek().gameObject;
+
+            Destroy(frontQueue);
+
+            simQueue.Dequeue();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
+
+       
     }
 
-    public void ReadStringInput(string s)
+    public int GetQueueCount()
     {
-        text = s;
+        return queueCount;
     }
+
 }
