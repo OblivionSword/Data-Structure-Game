@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Stack Simulation.unity
+- path: Assets/Scenes/Queue Simulation.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
