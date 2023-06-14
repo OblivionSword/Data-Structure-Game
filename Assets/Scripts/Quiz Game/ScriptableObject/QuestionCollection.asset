@@ -22,9 +22,9 @@ MonoBehaviour:
     explanation: Stack is the correct answer
     answered: 0
   - questionText: Correct answer is Queue
-    questionType: 0
+    questionType: 2
     questionImage: {fileID: 0}
-    questionVideo: {fileID: 0}
+    questionVideo: {fileID: 32900000, guid: 5c1c7376cfb2cf541b080680e236b91d, type: 3}
     correctAnswer: Queue
     hint: answer queue to win
     explanation: Queue is the correct answer
