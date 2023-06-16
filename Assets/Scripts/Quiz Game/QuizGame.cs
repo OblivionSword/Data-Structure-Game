@@ -1,26 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuizGame : MonoBehaviour
 {
     [SerializeField] QuizGameUI quizGameUI;
     [SerializeField] QuizGameScriptableObject questionCollection;
+    //[SerializeField] Button nextButton;
     private List<Question> questions;
     private Question selectedQuestion;
+    private int questionIndex;
+    public QuizStateMachine state;
 
     // Start is called before the first frame update
     void Start()
     {
         questions = questionCollection.questions;
+        questionIndex = 0;
         SelectQuestion();
     }
 
     private void SelectQuestion()
     {
-        int index = Random.Range(0, questions.Count);
-        selectedQuestion = questions[index];
+        int randomIndex = Random.Range(0, questions.Count);
+        /*
+        if(questionIndex > questions.Count)
+        {
+            questionIndex = questions.Count - 1;
+        }
+        */
+
+        selectedQuestion = questions[questionIndex];
         quizGameUI.SetQuestion(selectedQuestion);
+        state = QuizStateMachine.QUESTION;
+        //Debug.Log("question index= " + questionIndex);
     }
 
     public bool Answer(string answer)
@@ -43,7 +57,8 @@ public class QuizGame : MonoBehaviour
 
         //TODO:
         //set state to ANSWERED
-        //set selected question as answered (true)
+        state = QuizStateMachine.ANSWERED;
+        quizGameUI.SetNextButton(true);
         //set explanation text panel to active
         //set hint text to inactive
         //set hint button to inactive/uninteractable
@@ -58,7 +73,24 @@ public class QuizGame : MonoBehaviour
         //set correct/false text promt to inactive
         //check if the next question is already answered if not use it
         //if all question has been answered go to end result screen
-        SelectQuestion();
+        questionIndex += 1;
+        EndQuiz();
+        if(state != QuizStateMachine.END)
+        {
+            SelectQuestion();
+            state = QuizStateMachine.QUESTION;
+        }
+        
+    }
+
+    public void EndQuiz()
+    {
+        if(questionIndex >= questions.Count)
+        {
+            questionIndex = questions.Count - 1;
+            state = QuizStateMachine.END;
+            Debug.Log("quiz is over");
+        }
     }
     
 }

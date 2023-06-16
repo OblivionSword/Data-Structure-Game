@@ -134,8 +134,10 @@ GameObject:
   - component: {fileID: 114845924}
   - component: {fileID: 114845926}
   - component: {fileID: 114845925}
+  - component: {fileID: 114845927}
+  - component: {fileID: 114845928}
   m_Layer: 5
-  m_Name: 'Queue Answer Item '
+  m_Name: 'Queue '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +157,7 @@ RectTransform:
   m_Children:
   - {fileID: 2112525231}
   m_Father: {fileID: 1421455715}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -200,6 +202,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114845923}
   m_CullTransparentMesh: 1
+--- !u!114 &114845927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114845923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6db056e9f2108b4d800274758823702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1980896155}
+--- !u!225 &114845928
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114845923}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &163071180
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +642,11 @@ MonoBehaviour:
   answerButtons:
   - {fileID: 1134353059}
   - {fileID: 1512585295}
+  nextButton: {fileID: 1094723276}
+  stackDragAnswer: {fileID: 917259960}
+  queueDragAnswer: {fileID: 114845923}
+  stackAnswerDefaultPos: {x: 0, y: 0}
+  queueAnswerDefaultPos: {x: 0, y: 0}
 --- !u!1 &399628133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,8 +1214,10 @@ GameObject:
   - component: {fileID: 917259961}
   - component: {fileID: 917259963}
   - component: {fileID: 917259962}
+  - component: {fileID: 917259964}
+  - component: {fileID: 917259965}
   m_Layer: 5
-  m_Name: Stack Answer Item
+  m_Name: Stack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1203,7 +1237,7 @@ RectTransform:
   m_Children:
   - {fileID: 1693788206}
   m_Father: {fileID: 1421455715}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1248,6 +1282,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917259960}
   m_CullTransparentMesh: 1
+--- !u!114 &917259964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917259960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6db056e9f2108b4d800274758823702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1980896155}
+--- !u!225 &917259965
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917259960}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &982966708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,13 +1492,14 @@ GameObject:
   - component: {fileID: 1094723280}
   - component: {fileID: 1094723279}
   - component: {fileID: 1094723278}
+  - component: {fileID: 1094723281}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1094723277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1529,10 +1589,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1094723276}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 384212542}
+        m_TargetAssemblyTypeName: QuizGameUI, Assembly-CSharp
+        m_MethodName: ResetDragAnswerPosition
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1566,6 +1626,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1246151990}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1094723276}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1615,6 +1687,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094723276}
   m_CullTransparentMesh: 1
+--- !u!114 &1094723281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094723276}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cdc09ba94a34b4f883301f65d885b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizGame: {fileID: 1830931091}
+  quizGameUI: {fileID: 0}
 --- !u!1 &1097291213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,9 +2591,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1430317427}
   - {fileID: 917259961}
   - {fileID: 114845924}
-  - {fileID: 1430317427}
   m_Father: {fileID: 384212541}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2527,6 +2613,7 @@ GameObject:
   - component: {fileID: 1430317427}
   - component: {fileID: 1430317429}
   - component: {fileID: 1430317428}
+  - component: {fileID: 1430317430}
   m_Layer: 5
   m_Name: Answer Box
   m_TagString: Untagged
@@ -2548,12 +2635,12 @@ RectTransform:
   m_Children:
   - {fileID: 1480019723}
   m_Father: {fileID: 1421455715}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -513, y: -278}
-  m_SizeDelta: {x: 180.625, y: 111.1207}
+  m_AnchoredPosition: {x: -520.56226, y: -282.2013}
+  m_SizeDelta: {x: 222.6375, y: 119.5232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430317428
 MonoBehaviour:
@@ -2593,6 +2680,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430317426}
   m_CullTransparentMesh: 1
+--- !u!114 &1430317430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430317426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50b411e69a0cf44cbcf6576db9e58e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizGame: {fileID: 1830931091}
+  quizGameUI: {fileID: 384212542}
 --- !u!1 &1480019722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quizGameUI: {fileID: 384212542}
   questionCollection: {fileID: 11400000, guid: 7be58804bb1601241ab22957daab46de, type: 2}
+  state: 0
 --- !u!1 &1839758244
 GameObject:
   m_ObjectHideFlags: 0

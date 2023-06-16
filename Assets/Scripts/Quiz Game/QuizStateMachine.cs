@@ -5,5 +5,6 @@ using UnityEngine;
 public enum QuizStateMachine 
 {
     QUESTION,
-    ANSWERED
+    ANSWERED,
+    END
 }
