@@ -11,11 +11,17 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
     [SerializeField] TextMeshProUGUI questionTextUI;
     [SerializeField] TextMeshProUGUI hintTextUI;
     [SerializeField] TextMeshProUGUI explanationTextUI;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI maxScoreText;
+    [SerializeField] GameObject correctPrompt;
+    [SerializeField] GameObject falsePrompt;
     [SerializeField] GameObject visualPlaceholder;
     [SerializeField] Image questionImageUI;
     [SerializeField] UnityEngine.Video.VideoPlayer questionVideoUI;
+    [SerializeField] GameObject endResultScreen;
     [SerializeField] List<Button> answerButtons;
     [SerializeField] GameObject nextButton;
+    [SerializeField] GameObject hintButton;
     [SerializeField] GameObject stackDragAnswer;
     [SerializeField] GameObject queueDragAnswer;
     public Vector2 stackAnswerDefaultPos;
@@ -35,6 +41,12 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
     {
         stackAnswerDefaultPos = stackDragAnswer.transform.position;
         queueAnswerDefaultPos = queueDragAnswer.transform.position;
+        setEndResultScreen(false);
+    }
+
+    private void Update()
+    {
+        EndResultScreenScore();
     }
 
     public void SetQuestion(Question question)
@@ -78,6 +90,12 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
         questionVideoUI.gameObject.SetActive(false);
     }
 
+    public void EndResultScreenScore()
+    {
+        scoreText.text = quizGame.score.ToString();
+        maxScoreText.text = quizGame.maxScore.ToString();
+    }
+
     private void OnClick(Button button)
     {
         if (quizGame.state == QuizStateMachine.QUESTION)
@@ -106,6 +124,11 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
         nextButton.SetActive(val);
     }
 
+    public void SetHintButtonInteractive(bool val)
+    {
+        hintButton.GetComponent<Button>().interactable = val;
+    }
+
     public void SetExplanationText(bool val)
     {
         explanationTextUI.gameObject.SetActive(val);
@@ -114,6 +137,21 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
     public void SetHintText(bool val)
     {
         hintTextUI.gameObject.SetActive(val);
+    }
+
+    public void SetCorrectPrompt(bool val)
+    {
+        correctPrompt.SetActive(val);
+    }
+
+    public void SetFalsePrompt(bool val)
+    {
+        falsePrompt.SetActive(val);
+    }
+
+    public void setEndResultScreen(bool val)
+    {
+        endResultScreen.SetActive(val);
     }
 
     public void OnDrop(PointerEventData eventData)

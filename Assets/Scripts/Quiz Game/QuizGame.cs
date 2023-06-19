@@ -7,7 +7,8 @@ public class QuizGame : MonoBehaviour
 {
     [SerializeField] QuizGameUI quizGameUI;
     [SerializeField] QuizGameScriptableObject questionCollection;
-    //[SerializeField] Button nextButton;
+    public int score;
+    public int maxScore;
     private List<Question> questions;
     private Question selectedQuestion;
     private int questionIndex;
@@ -18,51 +19,52 @@ public class QuizGame : MonoBehaviour
     {
         questions = questionCollection.questions;
         questionIndex = 0;
+        maxScore = questions.Count;
         SelectQuestion();
     }
 
     private void SelectQuestion()
     {
         int randomIndex = Random.Range(0, questions.Count);
-        /*
-        if(questionIndex > questions.Count)
-        {
-            questionIndex = questions.Count - 1;
-        }
-        */
 
         selectedQuestion = questions[questionIndex];
         quizGameUI.SetQuestion(selectedQuestion);
         state = QuizStateMachine.QUESTION;
-        //Debug.Log("question index= " + questionIndex);
     }
 
     public bool Answer(string answer)
     {
-        bool correctAnswer = false;
+        bool correctAnswer = true;
+        string questionAnswer = selectedQuestion.correctAnswer;
 
         //check answer from button/droped answer
-        if (answer == selectedQuestion.correctAnswer)
+        if (answer == questionAnswer)
         {
             //Correct
             correctAnswer = true;
             //set correct text promp to active
+            score += 1;
+            quizGameUI.SetCorrectPrompt(true);
         }
-        else
+        else if(answer != questionAnswer)
         {
             //False
             correctAnswer = false;
             //set false text promp to active
+            quizGameUI.SetFalsePrompt(true);
         }
 
         //TODO:
         //set state to ANSWERED
-        state = QuizStateMachine.ANSWERED;
-        quizGameUI.SetNextButton(true);
         //set explanation text panel to active
         //set hint text to inactive
         //set hint button to inactive/uninteractable
         //set next button to active
+        state = QuizStateMachine.ANSWERED;
+        quizGameUI.SetHintText(false);
+        quizGameUI.SetHintButtonInteractive(false);
+        quizGameUI.SetExplanationText(true);
+        quizGameUI.SetNextButton(true);
 
         return correctAnswer;
     }
@@ -74,11 +76,20 @@ public class QuizGame : MonoBehaviour
         //check if the next question is already answered if not use it
         //if all question has been answered go to end result screen
         questionIndex += 1;
-        EndQuiz();
+        if(questionIndex >= questions.Count)
+        {
+            state = QuizStateMachine.END;
+        }
+
+        quizGameUI.SetCorrectPrompt(false);
+        quizGameUI.SetFalsePrompt(false);
+
         if(state != QuizStateMachine.END)
         {
             SelectQuestion();
-            state = QuizStateMachine.QUESTION;
+        }else if (state == QuizStateMachine.END)
+        {
+            EndQuiz();
         }
         
     }
@@ -88,7 +99,7 @@ public class QuizGame : MonoBehaviour
         if(questionIndex >= questions.Count)
         {
             questionIndex = questions.Count - 1;
-            state = QuizStateMachine.END;
+            quizGameUI.setEndResultScreen(true);
             Debug.Log("quiz is over");
         }
     }
