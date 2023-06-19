@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main Menu.unity
+    guid: 5e3f9c39b94ba0042acf99d0078cbf0e
+  - enabled: 1
+    path: Assets/Scenes/Stack Simulation.unity
+    guid: fa08ef317c505db4bbc38fab3574a4e0
+  - enabled: 1
+    path: Assets/Scenes/Queue Simulation.unity
+    guid: 594cbb65b6da6b24f97a3988905ee1ae
+  - enabled: 1
+    path: Assets/Scenes/Quiz Game.unity
+    guid: 7e203d3dc68d0604d895cf6a60a58db0
   m_configObjects: {}
