@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuizGame : MonoBehaviour
 {
@@ -102,6 +103,11 @@ public class QuizGame : MonoBehaviour
             quizGameUI.setEndResultScreen(true);
             Debug.Log("quiz is over");
         }
+    }
+
+    public void QuitQuiz()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
     
 }

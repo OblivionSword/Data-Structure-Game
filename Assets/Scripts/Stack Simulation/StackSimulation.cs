@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StackSimulation : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class StackSimulation : MonoBehaviour
     {
         try
         {
+            if (simStack.Count == 0)
+                return;
+
             GameObject topBox = simStack.Peek().gameObject;
 
             Destroy(topBox);
@@ -49,6 +53,11 @@ public class StackSimulation : MonoBehaviour
     public int GetBoxCount()
     {
         return boxCount;
+    }
+
+    public void QuitSim()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
 }

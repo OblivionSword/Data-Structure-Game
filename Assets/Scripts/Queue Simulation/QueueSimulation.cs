@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QueueSimulation : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class QueueSimulation : MonoBehaviour
     {
         try
         {
+            if (simQueue.Count == 0)
+                return;
+
             GameObject frontQueue = simQueue.Peek().gameObject;
 
             Destroy(frontQueue);
@@ -45,12 +49,16 @@ public class QueueSimulation : MonoBehaviour
             Debug.LogException(e, this);
         }
 
-       
     }
 
     public int GetQueueCount()
     {
         return queueCount;
+    }
+
+    public void QuitSim()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
 }

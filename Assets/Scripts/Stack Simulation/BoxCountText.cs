@@ -12,7 +12,7 @@ public class BoxCountText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boxCounterText = FindObjectOfType<TextMeshProUGUI>();
+        boxCounterText = GetComponent<TextMeshProUGUI>();
         
     }
 

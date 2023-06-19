@@ -5,7 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    [SerializeField] GameObject titleText;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject simulationSubMenu;
+    [SerializeField] GameObject quizGameInstruction;
+
+    private void Start()
+    {
+        titleText.SetActive(true);
+        mainMenu.SetActive(true);
+        simulationSubMenu.SetActive(false);
+        quizGameInstruction.SetActive(false);
+    }
+
     public void LoadScene(string sceneName)
     {
         //string sceneName = scene.name;
