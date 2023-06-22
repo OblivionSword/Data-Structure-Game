@@ -12,5 +12,5 @@ public class Question
     public string correctAnswer;
     public string hint;
     public string explanation;
-    public bool answered;
+    public string credit;
 }

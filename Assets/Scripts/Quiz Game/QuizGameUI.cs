@@ -11,8 +11,10 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
     [SerializeField] TextMeshProUGUI questionTextUI;
     [SerializeField] TextMeshProUGUI hintTextUI;
     [SerializeField] TextMeshProUGUI explanationTextUI;
+    [SerializeField] TextMeshProUGUI creditTextUI;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI maxScoreText;
+    [SerializeField] TextMeshProUGUI evaluationText;
     [SerializeField] GameObject correctPrompt;
     [SerializeField] GameObject falsePrompt;
     [SerializeField] GameObject visualPlaceholder;
@@ -78,6 +80,7 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
             questionTextUI.text = question.questionText;
             hintTextUI.text = question.hint;
             explanationTextUI.text = question.explanation;
+            creditTextUI.text = question.credit;
 
         }
         
@@ -92,8 +95,29 @@ public class QuizGameUI : MonoBehaviour, IDropHandler
 
     public void EndResultScreenScore()
     {
-        scoreText.text = quizGame.score.ToString();
+        int score = quizGame.score;
+        scoreText.text = score.ToString();
         maxScoreText.text = quizGame.maxScore.ToString();
+
+        if (score == 0)
+        {
+            evaluationText.text = "Data structure can be difficult to understand for some. Don't be discouraged and keep learning you will understand them someday.";
+        }else if (0 < score && score < 4)
+        {
+            evaluationText.text = "Hey you're not bad. Keep practicing using stack and queue more and you will understand them better.";
+        }
+        else if(4 <= score && score <= 6)
+        {
+            evaluationText.text = "You have an understanding of stack and queue. With more practice you will get even better at using them.";
+        }
+        else if(6 < score && score < quizGame.maxScore)
+        {
+            evaluationText.text = "You're already very familiar with using stack and queue. With a bit more practice they will become second nature to you.";
+        }
+        else if(score == quizGame.maxScore)
+        {
+            evaluationText.text = "Stack and queue are already part of your programming arsenal. I bet you can even create your own implementation of stack and queue.";
+        }
     }
 
     private void OnClick(Button button)
