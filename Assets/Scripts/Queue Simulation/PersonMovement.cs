@@ -5,20 +5,22 @@ using UnityEngine;
 public class PersonMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float speed = 2.0f;
+    [SerializeField] float speed = 2.0f;
+    private Vector3 directionX;
+    private Vector3 directionY;
+    public bool dequeued;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        directionX = new Vector3(1.0f, 0, 0);
     }
 
     private void FixedUpdate()
     {
-        Vector3 directionX = new Vector3(1.0f,0,0);
-
-        rb.MovePosition(transform.position + directionX * Time.deltaTime * speed);
+        rb.velocity = directionX * speed;
     }
 
-    
+
 }

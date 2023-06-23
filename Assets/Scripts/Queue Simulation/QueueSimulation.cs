@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class QueueSimulation : MonoBehaviour
 {
@@ -37,9 +38,9 @@ public class QueueSimulation : MonoBehaviour
         {
             if (simQueue.Count == 0)
                 return;
-
+            
             GameObject frontQueue = simQueue.Peek().gameObject;
-
+            
             Destroy(frontQueue);
 
             simQueue.Dequeue();

@@ -262,5 +262,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Queue Simulation
       objectReference: {fileID: 0}
+    - target: {fileID: 3591658662371013714, guid: da5c849ce89a6c14496947ed0766afd4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 919440480}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5c849ce89a6c14496947ed0766afd4, type: 3}
