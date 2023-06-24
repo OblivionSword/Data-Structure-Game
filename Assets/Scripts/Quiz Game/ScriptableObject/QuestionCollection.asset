@@ -16,17 +16,17 @@ MonoBehaviour:
   - questionText: In one of the simulations, we simulated the pop and push behavior
       with boxes. What data structures was that simulation supposed to be?
     questionType: 1
-    questionImage: {fileID: 21300000, guid: 1b6ca4b19fe5c684abff09dddc53e79b, type: 3}
+    questionImage: {fileID: 21300000, guid: 22dee31762ce4df42a9501f0850f547e, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
     hint: Remember what data structure has the pop and push method
     explanation: Stack uses the pop and push method for adding and removing entries
       in it
     credit: 
-  - questionText: In one of the simulations, we simulate a line for buying a ticket
-      to a museum. What kind of data structure that we use to simulate it?
+  - questionText: In one of the simulations, we simulate a line for using the teleportation
+      device. What kind of data structure that we use to simulate it?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: 3f04dccf79916c342a15536e67bda1cf, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Queue
     hint: "Imagine you\u2019re waiting in a line what does that look like as a data
@@ -39,18 +39,18 @@ MonoBehaviour:
       order and calls out numbers from lowest to highest in order. What data structure
       would this new system uses? "
     questionType: 1
-    questionImage: {fileID: 21300000, guid: 3f07313fdceabe5439d033582a0e4cf9, type: 3}
+    questionImage: {fileID: 21300000, guid: f7af35291b2ec4145bb32cfde4f6d5dc, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Queue
     hint: If we imagine inputting the number in order from lowest first to highest
       last and outputting the lowest first to highest last what does that look like?
     explanation: ' Queue would be an ideal data structure to use because of the First-In-First-Out
       order of operation.'
-    credit: 
+    credit: https://www.d17.de/projekte/zeitmanagement.html
   - questionText: Everyone is familiar with the undo button in most modern programs.
       Knowing how it functions what data structure is used to implement this functionality?
-    questionType: 0
-    questionImage: {fileID: 0}
+    questionType: 1
+    questionImage: {fileID: 21300000, guid: dc3808c52a6bbf4468b79a81532bd374, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
     hint: An undo button works by rolling back your last action in the saved state.
@@ -58,12 +58,12 @@ MonoBehaviour:
     explanation: Most programs use Stack to implement an undo functionality because
       you need to get the last action a user executes and Stack gives easy access
       to the user's previous actions and grabs it in order.
-    credit: 
+    credit: https://support.microsoft.com/en-us/office/undo-redo-or-repeat-an-action-84bdb9bc-4e23-4f06-ba78-f7b893eb2d28
   - questionText: In Dungeon & Dragons, the dungeon master usually has to keep track
       of each character's turn order in combat manually. If we want to automate this
       process with a program what type of data structure would be perfect?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: 118d6db01da75274c9593fc7e3f3cf38, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Queue
     hint: In D&D the DM keeps track of turn order by ordering which character rolls
@@ -72,63 +72,63 @@ MonoBehaviour:
     explanation: Queue would be perfect for this. All we need to do is enqueue the
       characters from highest to lowest rolls and dequeue whoever is the first character
       to act.
-    credit: 
+    credit: https://en.wikipedia.org/wiki/Dungeons_%26_Dragons
   - questionText: Everyone knows how to play the Tower of Hanoi right? The goal of
       the game is to put all the disks in the last rod by only moving one disk at
       a time. If we look at how the game is played what data structure does this
       remind us of?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: 89435d9324626e14195b8290e68239a9, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
     hint: In this game, you can only move the top of each position one at a time.
     explanation: Tower of Hanoi is a classic example of how Stack works. The way
       that you can only move the top of each stack one at a time resembles how Stack
       works.
-    credit: 
+    credit: https://en.wikipedia.org/wiki/Tower_of_Hanoi
   - questionText: "Let\u2019s program a simple calculator that does a simple subtraction
       and addition of small integers. If we think about how a calculator works what
       data structure should we use?"
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: 75531851cbb759a46b3be968b7c40669, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
     hint: A calculator uses a postfix expression to evaluate the operands inputted
       by the user also known as reverse polish notation.
     explanation: Stack is the ideal data structure to implement a reverse polish
       notation method of evaluating inputs.
-    credit: 
+    credit: https://www.vecteezy.com/vector-art/4791145-simple-calculator-vector
   - questionText: Web servers are an integral part of how we communicate through
       the internet. If we want to implement a web server what data structure should
       we use?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: d0fb09eab293fa542a2f73a8e670d37d, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Queue
     hint: A web server works by receiving requests from the internet and then executing
       them in order.
     explanation: A web server typically uses Queue to manage incoming requests and
       process them in order from earliest to latest.
-    credit: 
+    credit: https://www.dicoding.com/blog/apa-itu-web-server-dan-fungsinya/
   - questionText: In Java, methods are called from top to bottom. To keep track of
       the methods and their order what data structure is used in Java Virtual Machine(JVM)?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: 14a497123f0fd3a45bbd86fce7913a5c, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
     hint: JVM needs some way to keep track of which methods are called first after
       storing them.
     explanation: JVM uses Stack to keep track of stored methods calls. JVM itself
       has its own implementation of Stack.
-    credit: 
+    credit: https://www.linkedin.com/pulse/java-virtual-machinejvm-vijay-yadav
   - questionText: At some point in life, we all had to print multiple files with
       multiple pages from the same printers on the same day. What type of data structure
       that a printer used to keep track of what to print first?
     questionType: 1
-    questionImage: {fileID: 0}
+    questionImage: {fileID: 21300000, guid: e55a703d18fc8334f8a308b6b21f1adb, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Queue
     hint: The printer needs to keep track of what order should it print first.
     explanation: The printer use Queue to process the order in which print jobs are
       supposed to be done first so that it would not print the file in a weird order.
-    credit: 
+    credit: https://rz.htw-berlin.de/en/tutorials/copying-and-printing-at-the-htw-berlin/printer-username/printing-with-the-htw-studentcard/
