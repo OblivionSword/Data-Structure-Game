@@ -15,6 +15,6 @@ public class SurveyButton : MonoBehaviour
 
     private void onClick()
     {
-        Application.OpenURL("https://www.google.com/");
+        Application.OpenURL("https://forms.gle/kRzrAPPkKjuQiiBf7");
     }
 }
