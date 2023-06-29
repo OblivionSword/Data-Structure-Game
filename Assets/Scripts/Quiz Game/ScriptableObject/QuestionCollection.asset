@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: QuestionCollection
   m_EditorClassIdentifier: 
   questions:
-  - questionText: In one of the simulations, we simulated the pop and push behavior
-      with boxes. What data structures was that simulation supposed to be?
+  - questionText: In one of the simulations, we simulated the a data structure using
+      boxes. What data structures was that simulation supposed to be?
     questionType: 1
     questionImage: {fileID: 21300000, guid: 22dee31762ce4df42a9501f0850f547e, type: 3}
     questionVideo: {fileID: 0}
     correctAnswer: Stack
-    hint: Remember what data structure has the pop and push method
-    explanation: Stack uses the pop and push method for adding and removing entries
-      in it
+    hint: Remember what data structure has the behaviour that it simulate.
+    explanation: The stacking of boxes simulate the Stack data structure.
     credit: 
   - questionText: In one of the simulations, we simulate a line for using the teleportation
       device. What kind of data structure that we use to simulate it?
@@ -44,9 +43,18 @@ MonoBehaviour:
     correctAnswer: Queue
     hint: If we imagine inputting the number in order from lowest first to highest
       last and outputting the lowest first to highest last what does that look like?
-    explanation: ' Queue would be an ideal data structure to use because of the First-In-First-Out
-      order of operation.'
+    explanation: Queue would be an ideal data structure to use because of the First-In-First-Out
+      order of operation.
     credit: https://www.d17.de/projekte/zeitmanagement.html
+  - questionText: Below are a snippet of java code of a data structure operation.
+      What kind of data structure utilize these methods?
+    questionType: 1
+    questionImage: {fileID: 21300000, guid: bc90bd84ac23c9b438dd9914cbff9253, type: 3}
+    questionVideo: {fileID: 0}
+    correctAnswer: Stack
+    hint: Remember which of data structure uses the method pop() and push().
+    explanation: Stack uses pop() and push() to add and remove entries.
+    credit: 
   - questionText: Everyone is familiar with the undo button in most modern programs.
       Knowing how it functions what data structure is used to implement this functionality?
     questionType: 1
@@ -110,17 +118,6 @@ MonoBehaviour:
     explanation: A web server typically uses Queue to manage incoming requests and
       process them in order from earliest to latest.
     credit: https://www.dicoding.com/blog/apa-itu-web-server-dan-fungsinya/
-  - questionText: In Java, methods are called from top to bottom. To keep track of
-      the methods and their order what data structure is used in Java Virtual Machine(JVM)?
-    questionType: 1
-    questionImage: {fileID: 21300000, guid: 14a497123f0fd3a45bbd86fce7913a5c, type: 3}
-    questionVideo: {fileID: 0}
-    correctAnswer: Stack
-    hint: JVM needs some way to keep track of which methods are called first after
-      storing them.
-    explanation: JVM uses Stack to keep track of stored methods calls. JVM itself
-      has its own implementation of Stack.
-    credit: https://www.linkedin.com/pulse/java-virtual-machinejvm-vijay-yadav
   - questionText: At some point in life, we all had to print multiple files with
       multiple pages from the same printers on the same day. What type of data structure
       that a printer used to keep track of what to print first?
