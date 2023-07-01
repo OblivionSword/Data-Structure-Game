@@ -33,3 +33,7 @@ Box sprite by [Cpt_Flash](https://opengameart.org/users/cptflash)
 Person sprite from [Wikipedia](https://de.m.wikipedia.org/wiki/Datei:Person_icon_BLACK-01.svg)
 
 Teleporter sprite by [rrcaseyr](https://twitter.com/refractionaldev)
+
+## Disclaimer
+
+The Mac and Linux build may or may not work because I don't have both machines to test it.
