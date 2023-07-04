@@ -8,7 +8,6 @@ public class PersonMovement : MonoBehaviour
     [SerializeField] float speed = 2.0f;
     private Vector3 directionX;
     private Vector3 directionY;
-    public bool dequeued;
 
     // Start is called before the first frame update
     void Start()
