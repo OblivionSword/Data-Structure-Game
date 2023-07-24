@@ -26,8 +26,6 @@ public class QuizGame : MonoBehaviour
 
     private void SelectQuestion()
     {
-        int randomIndex = Random.Range(0, questions.Count);
-
         selectedQuestion = questions[questionIndex];
         quizGameUI.SetQuestion(selectedQuestion);
         state = QuizStateMachine.QUESTION;
@@ -43,7 +41,7 @@ public class QuizGame : MonoBehaviour
         {
             //Correct
             correctAnswer = true;
-            //set correct text promp to active
+            //set correct text prompt to active
             score += 1;
             quizGameUI.SetCorrectPrompt(true);
         }
@@ -51,16 +49,10 @@ public class QuizGame : MonoBehaviour
         {
             //False
             correctAnswer = false;
-            //set false text promp to active
+            //set false text prompt to active
             quizGameUI.SetFalsePrompt(true);
         }
 
-        //TODO:
-        //set state to ANSWERED
-        //set explanation text panel to active
-        //set hint text to inactive
-        //set hint button to inactive/uninteractable
-        //set next button to active
         state = QuizStateMachine.ANSWERED;
         quizGameUI.SetHintText(false);
         quizGameUI.SetHintButtonInteractive(false);

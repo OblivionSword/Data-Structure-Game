@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class AnswerDropBox : MonoBehaviour, IDropHandler
 {
@@ -20,7 +17,6 @@ public class AnswerDropBox : MonoBehaviour, IDropHandler
             {
                 string answer = eventData.pointerDrag.name;
                 bool checkAnswer = quizGame.Answer(answer);
-                //quizGameUI.SetNextButton(true);
 
                 if (checkAnswer == true)
                 {
